@@ -1,0 +1,58 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Fundamentos de Ciência de Dados Com Aplicações 
+author: André Carlos de Carvalho, Angelo Menezes e Robson Bonidia
+logo: logo.png
+
+# Parse and render settings
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    # - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    # - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+    - tasklist
+  myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
+  myst_dmath_double_inline: true  # Allow display math ($$) within an inline context
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/Bonidia/cd-fundamentos  # Online location of your book
+  # path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# HTML-specific settings
+html:
+  use_edit_page_button      : true  # Whether to add an "edit this page" button to pages.
+  use_repository_button     : false  # Whether to add a link to your repository button
+  use_issues_button         : false  # Whether to add an "open an issue" button
+  use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+
+  comments:
+    hypothesis              : false
+    utterances              : false
+  announcement              : "Fundamentos de Ciência de Dados Com Aplicações" # A banner announcement at the top of the site.
