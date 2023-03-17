@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Livro: Fundamentos de Ciência de Dados Com Aplicações</title>
+    <title>Qualidade de Dados</title>
   
   
   
@@ -59,10 +59,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cp4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Conceitos Gerais da Linguagem Python" href="cp1.html" />
+    <link rel="next" title="Transformação de Dados" href="cp5.html" />
+    <link rel="prev" title="Visualização para Exploração de Dados" href="cp3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -134,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -147,17 +148,17 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Livro: Fundamentos de Ciência de Dados Com Aplicações
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cp1.html">Conceitos Gerais da Linguagem Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cp2.html">Python para Ciência de Dados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cp3.html">Visualização para Exploração de Dados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cp4.html">Qualidade de Dados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Qualidade de Dados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cp5.html">Transformação de Dados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cp6.html">Engenharia de Características</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cp7.html">Amostras de Dados para Experimentos</a></li>
@@ -235,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Bonidia/cd-fundamentos/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Bonidia/cd-fundamentos/issues/new?title=Issue%20on%20page%20%2Fcp4.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abra um problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/cp4.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Baixar arquivo fonte"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +335,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -345,11 +348,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Livro: Fundamentos de Ciência de Dados Com Aplicações</h1>
+    <h1>Qualidade de Dados</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-ausentes">Valores Ausentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preenchimento-de-valores">Preenchimento de Valores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-redundantes">Valores Redundantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-outliers">Valores Outliers</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -359,29 +373,113 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="livro-fundamentos-de-ciencia-de-dados-com-aplicacoes">
-<h1>Livro: Fundamentos de Ciência de Dados Com Aplicações<a class="headerlink" href="#livro-fundamentos-de-ciencia-de-dados-com-aplicacoes" title="Permalink to this headline">#</a></h1>
-<p>Como toda área de conhecimento, a Ciência de Dados está apoiada por um amplo e profundo conjunto de conhecimentos acumulados ao longo dos anos, validados e comprovados por rigorosos métodos científicos. Assim, embora a primeira vista pareça fácil e simples, o uso correto, eficiente
-e efetivo da Ciência de Dados pressupõe uma grande dedicação a estudos e práticas, em temas direta e indiretamente associados à análise de dados com algoritmos, técnicas e dispositivos computacionais.</p>
-<p>A falta da formação adequada nos conceitos básicos e avançados necessários, da mesma forma que nas demais áreas, pode levar não apenas a soluções incorretas, ineficientes e inexplicáveis, mas também a falta de confiabilidade, que pode trazer danos graves, pessoais, sociais, ambientais e materiais.
-Este livro tem por objetivo apresentar de uma forma introdutória e breve, conceitos que devem ser estudados em mais profundidade, por isso que seu título é Fundamentos de Ciência de Dados. Essa página é dedicada para a disponibilização dos códigos apresentados nos capítulos do livro, conforme apresentado a seguir:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="cp1.html"><span class="doc std std-doc">Conceitos Gerais da Linguagem Python</span></a></p></li>
-<li><p><a class="reference internal" href="cp2.html"><span class="doc std std-doc">Python para Ciência de Dados</span></a></p></li>
-<li><p><a class="reference internal" href="cp3.html"><span class="doc std std-doc">Visualização para Exploração de Dados</span></a></p></li>
-<li><p><a class="reference internal" href="cp4.html"><span class="doc std std-doc">Qualidade de Dados</span></a></p></li>
-<li><p><a class="reference internal" href="cp5.html"><span class="doc std std-doc">Transformação de Dados</span></a></p></li>
-<li><p><a class="reference internal" href="cp6.html"><span class="doc std std-doc">Engenharia de Características</span></a></p></li>
-<li><p><a class="reference internal" href="cp7.html"><span class="doc std std-doc">Amostras de Dados para Experimentos</span></a></p></li>
-<li><p><a class="reference internal" href="cp8.html"><span class="doc std std-doc">Modelagem de Dados</span></a></p></li>
-<li><p><a class="reference internal" href="cp9.html"><span class="doc std std-doc">Avaliação, Ajuste e Seleção de Modelos</span></a></p></li>
-<li><p><a class="reference internal" href="cp10.html"><span class="doc std std-doc">Dados Não Estruturados</span></a></p></li>
-</ol>
-<div class="important admonition">
-<p class="admonition-title">Importante</p>
-<p>Essa página apenas disponibiliza os códigos aplicados no livro, para adquiri-lo acesse:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="qualidade-de-dados">
+<h1>Qualidade de Dados<a class="headerlink" href="#qualidade-de-dados" title="Permalink to this headline">#</a></h1>
+<div class="section" id="valores-ausentes">
+<h2>Valores Ausentes<a class="headerlink" href="#valores-ausentes" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;nome_do_arquivo.csv&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identificando dados ausentes</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Remoção de objetos com valor ausente em qualquer atributo preditivo;</span>
+<span class="n">df_obj</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>
+
+<span class="c1"># Remoção de objetos com valor ausente em todos os atributos preditivos</span>
+<span class="n">df_obj</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="c1"># Remoção de objetos com valor ausente em qualquer/todos os atributos preditivos selecionados</span>
+<span class="n">df_obj</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Coluna1&#39;</span><span class="p">,</span> <span class="s1">&#39;Coluna2&#39;</span><span class="p">])</span>
+<span class="n">df_obj</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Coluna1&#39;</span><span class="p">,</span> <span class="s1">&#39;Coluna2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remoção de atributo preditivo com valor ausente em qualquer objeto</span>
+<span class="n">df_pred</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+
+<span class="c1"># Remoção de atributo preditivo com valor ausente em todos os objetos</span>
+<span class="n">df_pred</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="c1"># Remoção de atributo preditivo com valor ausente em um número determinado de objetos</span>
+<span class="n">df_pred</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preenchimento-de-valores">
+<h2>Preenchimento de Valores<a class="headerlink" href="#preenchimento-de-valores" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preencher com um valor constante</span>
+<span class="n">df_tratamento</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Preencher com a média</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Coluna&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Coluna&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="c1"># Preencher com a mediana</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Coluna&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Coluna&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+
+<span class="c1"># Preencher com a moda</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Coluna&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Coluna&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">())</span>
+
+<span class="c1"># Preencher com o valor do próximo exemplo</span>
+<span class="n">df_tratamento</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;bfill&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="valores-redundantes">
+<h2>Valores Redundantes<a class="headerlink" href="#valores-redundantes" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Encontrando dados duplicados</span>
+<span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span>
+
+<span class="c1"># Especificar a coluna que deseja encontrar dados duplicados</span>
+<span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s2">&quot;Coluna1&quot;</span><span class="p">,</span> <span class="s2">&quot;Coluna2&quot;</span><span class="p">])</span>
+
+<span class="c1"># Apresentando dados duplicadas</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+
+<span class="c1"># Contando dados duplicados</span>
+<span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Removendo dados duplicadas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="c1"># Removendo dados duplicados de uma coluna específica</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s2">&quot;Coluna&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="valores-outliers">
+<h2>Valores Outliers<a class="headerlink" href="#valores-outliers" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">z_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">)</span>
+<span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">z_df</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -413,12 +511,21 @@ Este livro tem por objetivo apresentar de uma forma introdutória e breve, conce
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="cp3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visualização para Exploração de Dados</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="cp1.html"
+       href="cp5.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Conceitos Gerais da Linguagem Python</p>
+        <p class="prev-next-title">Transformação de Dados</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -428,6 +535,23 @@ Este livro tem por objetivo apresentar de uma forma introdutória e breve, conce
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-ausentes">Valores Ausentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preenchimento-de-valores">Preenchimento de Valores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-redundantes">Valores Redundantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-outliers">Valores Outliers</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

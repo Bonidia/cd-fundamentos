@@ -8,14 +8,14 @@ Este livro tem por objetivo apresentar de uma forma introdutória e breve, conce
 
 1. [Conceitos Gerais da Linguagem Python](cp1.md)
 2. [Python para Ciência de Dados](cp2.md)
-3. [Visualização para Exploração de Dados](target)
-4. [Qualidade de Dados](target)
-5. [Transformação de Dados](target)
-6. [Engenharia de Características](target)
-7. [Amostras de Dados para Experimentos](target)
-8. [Modelagem de Dados](target)
-9. [Avaliação, Ajuste e Seleção de Modelos](target)
-10. [Dados Não Estruturados](target)
+3. [Visualização para Exploração de Dados](cp3.md)
+4. [Qualidade de Dados](cp4.md)
+5. [Transformação de Dados](cp5.md)
+6. [Engenharia de Características](cp6.md)
+7. [Amostras de Dados para Experimentos](cp7.md)
+8. [Modelagem de Dados](cp8.md)
+9. [Avaliação, Ajuste e Seleção de Modelos](cp9.md)
+10. [Dados Não Estruturados](cp10.md)
 
 ```{admonition} Importante
 :class: important
