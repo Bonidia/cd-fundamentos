@@ -6,8 +6,8 @@ e efetivo da Ciência de Dados pressupõe uma grande dedicação a estudos e pr�
 A falta da formação adequada nos conceitos básicos e avançados necessários, da mesma forma que nas demais áreas, pode levar não apenas a soluções incorretas, ineficientes e inexplicáveis, mas também a falta de confiabilidade, que pode trazer danos graves, pessoais, sociais, ambientais e materiais.
 Este livro tem por objetivo apresentar de uma forma introdutória e breve, conceitos que devem ser estudados em mais profundidade, por isso que seu título é Fundamentos de Ciência de Dados. Essa página é dedicada para a disponibilização dos códigos apresentados nos capítulos do livro, conforme apresentado a seguir:
 
-1. [Conceitos Gerais da Linguagem Python](target)
-2. [Python para Ciência de Dados](target)
+1. [Conceitos Gerais da Linguagem Python](cp1.md)
+2. [Python para Ciência de Dados](cp2.md)
 3. [Visualização para Exploração de Dados](target)
 4. [Qualidade de Dados](target)
 5. [Transformação de Dados](target)
