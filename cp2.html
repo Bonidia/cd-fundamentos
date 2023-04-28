@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python para Ciência de Dados &#8212; Ciência de Dados – Fundamentos e Aplicações</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cp2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Visualização para Exploração de Dados" href="cp3.html" />
+    <link rel="prev" title="Conceitos Gerais da Linguagem Python" href="cp1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Ciência de Dados – Fundamentos e Aplicações</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Ciência de Dados – Fundamentos e Aplicações</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Livro: Ciência de Dados – Fundamentos e Aplicações
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cp1.html">Conceitos Gerais da Linguagem Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python para Ciência de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp3.html">Visualização para Exploração de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp4.html">Qualidade de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp5.html">Transformação de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp6.html">Engenharia de Características</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp7.html">Amostras de Dados para Experimentos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp8.html">Modelagem de Dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp9.html">Avaliação, Ajuste e Seleção de Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp10.html">Dados Não Estruturados</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Bonidia/cd-fundamentos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositório fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Bonidia/cd-fundamentos/issues/new?title=Issue%20on%20page%20%2Fcp2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abra um problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Baixe esta página">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/cp2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Baixar arquivo fonte"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir em PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo tela cheia"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python para Ciência de Dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Conteúdo </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacao-de-dados-tabulares-com-pandas-funcoes-basicas">Manipulação de Dados Tabulares com Pandas - Funções Básicas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-dados-com-pandas">Tipos de Dados com Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renomeando-colunas">Renomeando Colunas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecionando-linhas-e-colunas">Selecionando Linhas e Colunas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adicionando-e-removendo-colunas">Adicionando e Removendo Colunas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-basicas-consultas">Operações Básicas - Consultas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-basicas-ordenacao">Operações Básicas - Ordenação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-basicas-combinando-dataframes">Operações Básicas - Combinando DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-basicas-salvando-dataframes">Operações Básicas - Salvando DataFrames</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-para-ciencia-de-dados">
+<h1>Python para Ciência de Dados<a class="headerlink" href="#python-para-ciencia-de-dados" title="Permalink to this headline">#</a></h1>
+<div class="section" id="manipulacao-de-dados-tabulares-com-pandas-funcoes-basicas">
+<h2>Manipulação de Dados Tabulares com Pandas - Funções Básicas<a class="headerlink" href="#manipulacao-de-dados-tabulares-com-pandas-funcoes-basicas" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;Paraná&#39;</span><span class="p">,</span> <span class="s1">&#39;Londrina&#39;</span><span class="p">,</span> <span class="mi">575377</span><span class="p">,</span> <span class="mf">1356.00</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">,</span> <span class="s1">&#39;São Carlos&#39;</span><span class="p">,</span> <span class="mi">254484</span><span class="p">,</span> <span class="mf">1508.00</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Santa Catarina&#39;</span><span class="p">,</span> <span class="s1">&#39;Florianópolis&#39;</span><span class="p">,</span> <span class="mi">508826</span><span class="p">,</span> <span class="mf">1798.00</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Paraná&#39;</span><span class="p">,</span> <span class="s1">&#39;Curitiba&#39;</span><span class="p">,</span> <span class="mi">1963726</span><span class="p">,</span> <span class="mf">2293.00</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">,</span> <span class="s1">&#39;Campinas&#39;</span><span class="p">,</span> <span class="mi">1223237</span><span class="p">,</span> <span class="mf">1710.00</span><span class="p">]</span>
+    <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Estado&#39;</span><span class="p">,</span> <span class="s1">&#39;Cidade&#39;</span><span class="p">,</span> <span class="s1">&#39;Habitantes&#39;</span><span class="p">,</span> <span class="s1">&#39;Salário-Médio&#39;</span><span class="p">])</span>
+
+<span class="n">cidades</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;qualidade_vinho.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Retorna um novo dataframe com as n primeiras amostras</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Retorna um novo dataframe com as n últimas amostras</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># Retorna uma tupla com o número de linhas e colunas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">info</span><span class="p">()</span> <span class="c1"># Retorna vazio e imprime na tela as informações gerais do dataframe</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">columns</span> <span class="c1"># Retorna uma lista com o nome de todas as colunas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Salário-Médio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># Retorna um objeto DataFrame com as medidas estatísticas para cada coluna</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tipos-de-dados-com-pandas">
+<h2>Tipos de Dados com Pandas<a class="headerlink" href="#tipos-de-dados-com-pandas" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="n">cidades</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Habitantes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Habitantes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">cidades</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;3-8-2021&#39;</span><span class="p">,</span> <span class="s1">&#39;3-9-2021&#39;</span><span class="p">,</span> <span class="s1">&#39;3-10-2021&#39;</span><span class="p">,</span> <span class="s1">&#39;3-11-2021&#39;</span><span class="p">,</span> <span class="s1">&#39;3-12-2021&#39;</span><span class="p">]</span>
+
+<span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">)</span> <span class="c1"># Dia, Mês, Ano</span>
+
+<span class="n">cidades</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">)</span> <span class="c1"># Dia, Mês, Ano</span>
+<span class="n">cidades</span> <span class="c1"># Novo Formato</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="renomeando-colunas">
+<h2>Renomeando Colunas<a class="headerlink" href="#renomeando-colunas" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Habitantes&#39;</span><span class="p">:</span> <span class="s1">&#39;N Habitantes&#39;</span><span class="p">,</span> <span class="s1">&#39;Data&#39;</span><span class="p">:</span> <span class="s1">&#39;Data - Censo&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cidades</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="selecionando-linhas-e-colunas">
+<h2>Selecionando Linhas e Colunas<a class="headerlink" href="#selecionando-linhas-e-colunas" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidadesHab</span> <span class="o">=</span> <span class="n">cidades</span><span class="p">[[</span><span class="s1">&#39;N Habitantes&#39;</span><span class="p">,</span> <span class="s1">&#39;Salário-Médio&#39;</span><span class="p">]]</span> <span class="c1"># Seleciona as duas colunas com os nomes especificados</span>
+<span class="n">cidadesHab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="c1"># Seleciona as duas linhas com os nomes especificados (note que o &quot;rótulo&quot; de cada linha está presente na forma de números inteiros)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># Seleciona as linhas do dataframe original, referentes ao índice determinado</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># Seleciona todas as linhas e as duas primeiras colunas do dataframe original</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># Seleciona as duas primeiras linhas e as três primeiras colunas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="c1"># Seleciona todas as linhas e as colunas determinadas</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adicionando-e-removendo-colunas">
+<h2>Adicionando e Removendo Colunas<a class="headerlink" href="#adicionando-e-removendo-colunas" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sigla&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;PR&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;SC&#39;</span><span class="p">,</span> <span class="s1">&#39;PR&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">])</span> <span class="c1"># Adiciona novos dados no índice dois</span>
+<span class="n">cidades</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sigla-Repetida&#39;</span><span class="p">,</span> <span class="n">cidades</span><span class="p">[</span><span class="s1">&#39;Sigla&#39;</span><span class="p">])</span> <span class="c1"># Adiciona uma coluna repetida &quot;Sigla&quot;</span>
+<span class="n">cidades</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Sigla-Repetida&#39;</span><span class="p">)</span>
+
+<span class="c1"># ou</span>
+
+<span class="n">cidades</span> <span class="o">=</span> <span class="n">cidades</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Sigla-Repetida&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cidades</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operacoes-basicas-consultas">
+<h2>Operações Básicas - Consultas<a class="headerlink" href="#operacoes-basicas-consultas" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;`Salário-Médio` &gt; 1400.0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Estado == &quot;São Paulo&quot;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;`N Habitantes` &gt; 500000 and `N Habitantes` &lt; 1300000&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operacoes-basicas-ordenacao">
+<h2>Operações Básicas - Ordenação<a class="headerlink" href="#operacoes-basicas-ordenacao" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Cidade&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cidades</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Salário-Médio&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cidades</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operacoes-basicas-combinando-dataframes">
+<h2>Operações Básicas - Combinando DataFrames<a class="headerlink" href="#operacoes-basicas-combinando-dataframes" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades_salarios</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;Paraná&#39;</span><span class="p">,</span> <span class="s1">&#39;Londrina&#39;</span><span class="p">,</span> <span class="mf">1356.00</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">,</span> <span class="s1">&#39;São Carlos&#39;</span><span class="p">,</span> <span class="mf">1508.00</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Santa Catarina&#39;</span><span class="p">,</span> <span class="s1">&#39;Florianópolis&#39;</span><span class="p">,</span> <span class="mf">1798.00</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Paraná&#39;</span><span class="p">,</span> <span class="s1">&#39;Curitiba&#39;</span><span class="p">,</span> <span class="mf">2293.00</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;São Paulo&#39;</span><span class="p">,</span> <span class="s1">&#39;Campinas&#39;</span><span class="p">,</span> <span class="mf">1710.00</span><span class="p">]</span>
+    <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Estado&#39;</span><span class="p">,</span> <span class="s1">&#39;Cidade&#39;</span><span class="p">,</span> <span class="s1">&#39;Salário-Médio&#39;</span><span class="p">])</span>
+
+<span class="n">cidades_salarios</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades_pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;Londrina&#39;</span><span class="p">,</span> <span class="mi">575377</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;São Carlos&#39;</span><span class="p">,</span> <span class="mi">254484</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Florianópolis&#39;</span><span class="p">,</span> <span class="mi">508826</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Curitiba&#39;</span><span class="p">,</span> <span class="mi">1963726</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Campinas&#39;</span><span class="p">,</span> <span class="mi">1223237</span><span class="p">]</span>
+    <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cidade&#39;</span><span class="p">,</span> <span class="s1">&#39;Habitantes&#39;</span><span class="p">])</span>
+
+<span class="n">cidades_pop</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">cidades_salarios</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">cidades_pop</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;Cidade&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">cidades_salarios</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">cidades_pop</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;Cidade&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades_df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;Londrina&#39;</span><span class="p">,</span> <span class="mi">575377</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;São Carlos&#39;</span><span class="p">,</span> <span class="mi">254484</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Florianópolis&#39;</span><span class="p">,</span> <span class="mi">508826</span><span class="p">],</span>
+    <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cidade&#39;</span><span class="p">,</span> <span class="s1">&#39;Habitantes&#39;</span><span class="p">])</span>
+
+<span class="n">cidades_df1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades_df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;Curitiba&#39;</span><span class="p">,</span> <span class="mi">1963726</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;Campinas&#39;</span><span class="p">,</span> <span class="mi">1223237</span><span class="p">]</span>
+    <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cidade&#39;</span><span class="p">,</span> <span class="s1">&#39;Habitantes&#39;</span><span class="p">])</span>
+
+<span class="n">cidades_df2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cidades_df1</span><span class="p">,</span> <span class="n">cidades_df2</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operacoes-basicas-salvando-dataframes">
+<h2>Operações Básicas - Salvando DataFrames<a class="headerlink" href="#operacoes-basicas-salvando-dataframes" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;my_df.csv&quot;</span><span class="p">)</span>
+<span class="n">cidades</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="s2">&quot;my_df.html&quot;</span><span class="p">)</span>
+<span class="n">cidades</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;my_df.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cp1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Conceitos Gerais da Linguagem Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cp3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visualização para Exploração de Dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Conteúdo
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacao-de-dados-tabulares-com-pandas-funcoes-basicas">Manipulação de Dados Tabulares com Pandas - Funções Básicas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-dados-com-pandas">Tipos de Dados com Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renomeando-colunas">Renomeando Colunas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecionando-linhas-e-colunas">Selecionando Linhas e Colunas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adicionando-e-removendo-colunas">Adicionando e Removendo Colunas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-basicas-consultas">Operações Básicas - Consultas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-basicas-ordenacao">Operações Básicas - Ordenação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-basicas-combinando-dataframes">Operações Básicas - Combinando DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacoes-basicas-salvando-dataframes">Operações Básicas - Salvando DataFrames</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+De André Carlos de Carvalho, Angelo Menezes e Robson Bonidia
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
