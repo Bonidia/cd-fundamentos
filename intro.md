@@ -1,4 +1,4 @@
-# Livro: Fundamentos de Ciência de Dados Com Aplicações
+# Livro: Ciência de Dados – Fundamentos e Aplicações
 
 Como toda área de conhecimento, a Ciência de Dados está apoiada por um amplo e profundo conjunto de conhecimentos acumulados ao longo dos anos, validados e comprovados por rigorosos métodos científicos. Assim, embora a primeira vista pareça fácil e simples, o uso correto, eficiente
 e efetivo da Ciência de Dados pressupõe uma grande dedicação a estudos e práticas, em temas direta e indiretamente associados à análise de dados com algoritmos, técnicas e dispositivos computacionais. 
