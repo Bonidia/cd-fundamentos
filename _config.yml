@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title:
+title: Ciência de Dados – Fundamentos e Aplicações
 author: André Carlos de Carvalho, Angelo Menezes e Robson Bonidia
 logo:
 
@@ -55,4 +55,4 @@ html:
   comments:
     hypothesis              : false
     utterances              : false
-  announcement              : "Fundamentos de Ciência de Dados Com Aplicações" # A banner announcement at the top of the site.
+  announcement              : "Ciência de Dados – Fundamentos e Aplicações" # A banner announcement at the top of the site.
