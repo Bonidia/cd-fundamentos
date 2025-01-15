@@ -19,5 +19,5 @@ Este livro tem por objetivo apresentar de uma forma introdutória e breve, conce
 
 ```{admonition} Importante
 :class: important
-Essa página apenas disponibiliza os códigos aplicados no livro, para adquiri-lo acesse: 
+Essa página apenas disponibiliza os códigos aplicados no livro, para adquiri-lo acesse: [Ciência de Dados - Fundamentos e Aplicações](https://www.grupogen.com.br/e-book-ciencia-de-dados-fundamentos-e-aplicacoes-andre-carlos-ponce-de-leon-ferreira-de-carvalho-editora-ltc-9788521638766)
 ```
