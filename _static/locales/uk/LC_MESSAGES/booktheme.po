@@ -8,53 +8,23 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "By"
-msgstr "Автор"
+msgid "Print to PDF"
+msgstr "Друк у форматі PDF"
 
-msgid "repository"
-msgstr "сховище"
-
-msgid "Fullscreen mode"
-msgstr "Повноекранний режим"
-
-msgid "Contents"
-msgstr "Зміст"
+msgid "Theme by the"
+msgstr "Тема від"
 
 msgid "Download source file"
 msgstr "Завантажити вихідний файл"
 
-msgid "Edit this page"
-msgstr "Редагувати цю сторінку"
+msgid "open issue"
+msgstr "відкритий випуск"
 
-msgid "Last updated on"
-msgstr "Останнє оновлення:"
-
-msgid "Print to PDF"
-msgstr "Друк у форматі PDF"
-
-msgid "suggest edit"
-msgstr "запропонувати редагувати"
-
-msgid "Download this page"
-msgstr "Завантажте цю сторінку"
-
-msgid "Toggle navigation"
-msgstr "Переключити навігацію"
-
-msgid "By the"
-msgstr "По"
-
-msgid "Sphinx Book Theme"
-msgstr "Тема книги \"Сфінкс\""
+msgid "Contents"
+msgstr "Зміст"
 
 msgid "previous page"
 msgstr "Попередня сторінка"
-
-msgid "Source repository"
-msgstr "Джерело сховища"
-
-msgid "open issue"
-msgstr "відкритий випуск"
 
 msgid "Download notebook file"
 msgstr "Завантажте файл блокнота"
@@ -62,14 +32,44 @@ msgstr "Завантажте файл блокнота"
 msgid "Copyright"
 msgstr "Авторське право"
 
-msgid "Theme by the"
-msgstr "Тема від"
+msgid "Download this page"
+msgstr "Завантажте цю сторінку"
+
+msgid "Source repository"
+msgstr "Джерело сховища"
+
+msgid "By"
+msgstr "Автор"
+
+msgid "repository"
+msgstr "сховище"
+
+msgid "Last updated on"
+msgstr "Останнє оновлення:"
+
+msgid "Toggle navigation"
+msgstr "Переключити навігацію"
+
+msgid "Sphinx Book Theme"
+msgstr "Тема книги \"Сфінкс\""
+
+msgid "suggest edit"
+msgstr "запропонувати редагувати"
 
 msgid "Open an issue"
 msgstr "Відкрийте випуск"
 
-msgid "next page"
-msgstr "Наступна сторінка"
-
 msgid "Launch"
 msgstr "Запуск"
+
+msgid "Fullscreen mode"
+msgstr "Повноекранний режим"
+
+msgid "Edit this page"
+msgstr "Редагувати цю сторінку"
+
+msgid "By the"
+msgstr "По"
+
+msgid "next page"
+msgstr "Наступна сторінка"
